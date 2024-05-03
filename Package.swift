@@ -6,14 +6,15 @@ import PackageDescription
 let package = Package(
     name: "renovate-spm-demo",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "renovate-spm-demo",
             targets: ["renovate-spm-demo"]),
     ],
+    dependencies: [
+            .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.7.3"),
+            .package(url: "https://github.com/bdolewski-intellias/renovate-spm-dependency", exact: "1.0.0"),
+        ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "renovate-spm-demo"),
         .testTarget(
